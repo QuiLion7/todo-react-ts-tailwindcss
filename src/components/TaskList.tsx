@@ -32,14 +32,14 @@ const TaskList: React.FunctionComponent<ITaskListProps> = ({
         taskList.map((item) => (
           <div
             key={item.id}
-            // className="bg-violet-950 flex m-auto items-center max-w-[400px] mb-1 border-solid border-2 border-violet-500/50 rounded-lg p-1 hover:border-violet-500"
-            className={`flex m-auto items-center max-w-[400px] mb-1 text-white bg-${getColorClass(
+            className={`flex m-auto items-center max-w-[400px] mb-1 bg-${getColorClass(
               item.difficulty
             )} border-solid border-2 rounded-lg p-1 hover:border-violet-500`}
           >
+            <input type="checkbox" name="checkbox" />
+            <p className="text-base">{item.difficulty}</p>
             <div className="flex-1">
               <p className="text-lg">{item.title}</p>
-              {/* <p className="text-base">Dificuldade: {item.difficulty}</p> */}
             </div>
             <div className="flex flex-row gap-2">
               <FaEdit
