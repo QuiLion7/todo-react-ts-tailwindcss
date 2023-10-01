@@ -69,16 +69,13 @@ const TaskForm: React.FunctionComponent<ITaskFormProps> = ({
     }
   };
 
-  const getColorClass = (difficulty: number) => {
-    const colorRange: Record<number, string> = {
-      0: "blue-500",
-      1: "green-500",
-      2: "yellow-500",
-      3: "orange-500",
-      4: "red-500",
-      5: "violet-950",
-    };
-    return colorRange[difficulty];
+  const difficultyColorRange: Record<number, string> = {
+    0: "accent-blue-500",
+    1: "accent-green-500",
+    2: "accent-yellow-500",
+    3: "accent-orange-500",
+    4: "accent-red-500",
+    5: "accent-violet-950",
   };
 
   useEffect(() => {
@@ -100,6 +97,7 @@ const TaskForm: React.FunctionComponent<ITaskFormProps> = ({
           type="text"
           name="title"
           placeholder="Título da tarefa"
+          required
           className="bg-white mt-1 px-3 py-2 w-full border border-slate-300 rounded-md text-sm shadow-sm placeholder-slate-400 focus:outline-none focus:border-sky-500 focus:ring-1 focus:ring-sky-500"
           onChange={changeHandler}
           value={title}
@@ -115,7 +113,7 @@ const TaskForm: React.FunctionComponent<ITaskFormProps> = ({
           min={0}
           max={5}
           name="difficulty"
-          className={`accent-${getColorClass(difficulty)} mt-1 `}
+          className={`mt-1 ${difficultyColorRange[difficulty]}`}
           onChange={changeHandler}
           value={difficulty}
         />
